@@ -12,7 +12,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        // Uncomment in phase 3 to apply white to text
+        textTheme: Theme.of(context).textTheme.apply(bodyColor: Colors.white, displayColor: Colors.white),
       ),
       home: MyHomePage(),
     );
@@ -20,15 +21,9 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  Widget get bottomSection =>
-      Row(
+  Widget get bottomSection => Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: List<Widget>.generate(5, (index) =>
-            Container(
-                height: 40.0,
-                width: 40,
-                color: Colors.purple[300])),
-
+        children: List<Widget>.generate(5, (index) => Container(height: 40.0, width: 40, color: Colors.purple[300])),
       );
 
   Widget get middleSection {
@@ -50,6 +45,7 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       body: Column(
         children: <Widget>[
           // Top section
