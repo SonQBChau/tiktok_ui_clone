@@ -9,15 +9,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
         primarySwatch: Colors.blue,
       ),
       home: MyHomePage(),
@@ -26,6 +17,59 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
+  Widget get bottomSection =>
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: List<Widget>.generate(5, (index) =>
+            Container(
+                height: 40.0,
+                width: 40,
+                color: Colors.purple[300])),
+
+      );
+
+
+  Container get actionsToolbar {
+    return Container(
+      width: 100.0,
+      color: Colors.red[300],
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: List<Widget>.generate(5, (index) => Container(
+            width: 60, height: 60,
+            color: Colors.blue[300],
+            margin: EdgeInsets.only(top: 20.0))),
+      )
+    );
+  }
+
+  Expanded get videoDescription => Expanded(
+    child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10)),
+          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10)),
+          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10))
+        ]),
+  );
+
+  Widget get middleSection {
+    return Expanded(
+        child: Row(mainAxisSize: MainAxisSize.max, crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
+      videoDescription,
+      actionsToolbar,
+    ]));
+  }
+
+  Widget get topSection {
+    return Container(
+      height: 100.0,
+      padding: EdgeInsets.only(bottom: 15.0),
+      color: Colors.yellow[300],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,29 +86,5 @@ class MyHomePage extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  Container get bottomSection => Container(height: 80.0, color: Colors.blue[300]);
-
-  Widget get middleSection {
-    return Expanded(
-            child: Row(
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: <Widget>[
-                  Expanded(child: Container(color: Colors.green[300])),
-                  Container(
-                    width: 100.0,
-                    color: Colors.red[300],
-                  )
-                ]));
-  }
-
-  Widget get topSection {
-    return Container(
-          height: 100.0,
-          padding: EdgeInsets.only(bottom: 15.0),
-          color: Colors.yellow[300],
-        );
   }
 }
