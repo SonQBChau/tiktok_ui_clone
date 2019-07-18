@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_ui_clone/widgets/actions_toolbar.dart';
+import 'package:tiktok_ui_clone/widgets/bottom_toolbar.dart';
+import 'package:tiktok_ui_clone/widgets/video_description.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,37 +31,11 @@ class MyHomePage extends StatelessWidget {
 
       );
 
-
-  Container get actionsToolbar {
-    return Container(
-      width: 100.0,
-      color: Colors.red[300],
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: List<Widget>.generate(5, (index) => Container(
-            width: 60, height: 60,
-            color: Colors.blue[300],
-            margin: EdgeInsets.only(top: 20.0))),
-      )
-    );
-  }
-
-  Expanded get videoDescription => Expanded(
-    child: Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10)),
-          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10)),
-          Container(height: 10.0, color: Colors.green[300], margin: EdgeInsets.only(top: 10))
-        ]),
-  );
-
   Widget get middleSection {
     return Expanded(
         child: Row(mainAxisSize: MainAxisSize.max, crossAxisAlignment: CrossAxisAlignment.end, children: <Widget>[
-      videoDescription,
-      actionsToolbar,
+      VideoDescription(),
+      ActionsToolbar(),
     ]));
   }
 
@@ -82,7 +59,7 @@ class MyHomePage extends StatelessWidget {
           middleSection,
 
           // Bottom Section
-          bottomSection,
+          BottomToolbar(),
         ],
       ),
     );
