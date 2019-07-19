@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:tiktok_ui_clone/widgets/actions_toolbar.dart';
 import 'package:tiktok_ui_clone/widgets/bottom_toolbar.dart';
@@ -42,16 +43,29 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
+      body: Stack(
         children: <Widget>[
-          // Top section
-          topSection,
+          Container(
+          child: Image.network(
+            "https://images.unsplash.com/photo-1503832725-c34828469568?ixlib=rb-1.2.1&auto=format&fit=crop&w=1577&q=80",
+            fit: BoxFit.cover,
+            height: double.infinity,
+            width: double.infinity,
+            alignment: Alignment.center,
+          ),
+          ),
+          Column(
+            children: <Widget>[
+              // Top section
+              topSection,
 
-          // Middle expanded
-          middleSection,
+              // Middle expanded
+              middleSection,
 
-          // Bottom Section
-          BottomToolbar(),
+              // Bottom Section
+              BottomToolbar(),
+            ],
+          ),
         ],
       ),
     );

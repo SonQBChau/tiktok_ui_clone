@@ -122,7 +122,7 @@ class ActionsToolbar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 100.0,
-      color: Colors.black,
+      color: Colors.transparent,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
