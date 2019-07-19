@@ -58,10 +58,12 @@ class ActionsToolbar extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(ProfileImageSize / 2)
           ),
-          child: CachedNetworkImage(
-            imageUrl: "https://secure.gravatar.com/avatar/ef4a9338dca42372f15427cdb4595ef7",
-            placeholder: (context, url) =>  CircularProgressIndicator(),
-            errorWidget: (context, url, error) =>  Icon(Icons.error),
+          child: ClipOval(
+            child: CachedNetworkImage(
+              imageUrl: "https://randomuser.me/api/portraits/women/10.jpg",
+              placeholder: (context, url) =>  CircularProgressIndicator(),
+              errorWidget: (context, url, error) =>  Icon(Icons.error),
+            ),
           ),
         ));
   }
@@ -104,10 +106,12 @@ class ActionsToolbar extends StatelessWidget {
                 gradient: musicGradient,
                 borderRadius: BorderRadius.circular(ProfileImageSize / 2)
             ),
-            child: CachedNetworkImage(
-              imageUrl: "https://secure.gravatar.com/avatar/ef4a9338dca42372f15427cdb4595ef7",
-              placeholder: (context, url) => new CircularProgressIndicator(),
-              errorWidget: (context, url, error) => new Icon(Icons.error),
+            child: ClipOval(
+              child: CachedNetworkImage(
+                imageUrl: "https://randomuser.me/api/portraits/men/5.jpg",
+                placeholder: (context, url) => new CircularProgressIndicator(),
+                errorWidget: (context, url, error) => new Icon(Icons.error),
+              ),
             ),
           ),
 
